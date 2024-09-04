@@ -20,7 +20,7 @@ return {
   	opts = {
   		ensure_installed = {
   			"lua-language-server", "clangd",
-        "jdtls"
+        "jdtls", "rust-analyzer"
   		},
   	},
   },
