@@ -6,7 +6,6 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.signcolumn = 'yes'
 
-vim.opt.termguicolors = true
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -51,6 +50,8 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
 })
 
+-- colorscheme
+vim.opt.termguicolors = true
 vim.cmd([[colorscheme tokyonight]])
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
@@ -91,6 +92,8 @@ require('mason-lspconfig').setup({
     end,
   },
 })
+
+require('lspconfig').dafny.setup({})
 
 -- autocomplete
 local cmp = require('cmp')
