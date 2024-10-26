@@ -28,20 +28,30 @@ vim.opt.rtp:prepend(lazypath)
 -- PLUGINS
 require("lazy").setup({
   spec = {
-    {'folke/tokyonight.nvim'},
+		{
+			"folke/tokyonight.nvim",
+			lazy = false,
+			priority = 1000,
+			opts = {},
+		},
     {'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'},
 	  {'neovim/nvim-lspconfig'},
 		{'williamboman/mason.nvim'},
 		{'williamboman/mason-lspconfig.nvim'},
 	  {'hrsh7th/cmp-nvim-lsp'},
 	  {'hrsh7th/nvim-cmp'},
+		{'m4xshen/autoclose.nvim'},
+		{
+			"nvim-telescope/telescope-file-browser.nvim",
+			dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+		},
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
 })
 
-vim.cmd.colorscheme('tokyonight')
+vim.cmd([[colorscheme tokyonight]])
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
@@ -67,13 +77,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-    vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', '<leader>f', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end,
 })
 
 -- LSP installer
 require('mason').setup({})
 require('mason-lspconfig').setup({
+	ensure_installed = {"lua_ls", "clangd", "pyright"},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})
@@ -90,8 +101,8 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert({
     -- Navigate between completion items
-    ['<C-p>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
-    ['<C-n>'] = cmp.mapping.select_next_item({behavior = 'select'}),
+    ['<s-Tab>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
+    ['<Tab>'] = cmp.mapping.select_next_item({behavior = 'select'}),
 
     -- `Enter` key to confirm completion
     ['<CR>'] = cmp.mapping.confirm({select = false}),
@@ -109,3 +120,8 @@ cmp.setup({
     end,
   },
 })
+
+require("autoclose").setup()
+
+require("telescope").setup()
+vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
