@@ -8,7 +8,7 @@ vim.opt.signcolumn = 'yes'
 
 -- colorscheme
 vim.opt.termguicolors = true
---
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -30,7 +30,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
 		{import = "plugins"},
-	  {'hrsh7th/cmp-nvim-lsp'},
 	  {'hrsh7th/nvim-cmp'},
 		{'m4xshen/autoclose.nvim'},
 		{

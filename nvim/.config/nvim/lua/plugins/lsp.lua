@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = {"hrsh7th/cmp-nvim-lsp"},
 	lazy = false,
 	config = function()
 		local lspconfig_defaults = require('lspconfig').util.default_config
