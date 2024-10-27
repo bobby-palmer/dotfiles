@@ -28,6 +28,10 @@ return {
 			end,
 		})
 
-		require('lspconfig').dafny.setup({})
+		-- mason can't install dafny
+		if vim.fn.executable('dafny') then
+			require('lspconfig').dafny.setup({})
+		end
+
 	end
 }
