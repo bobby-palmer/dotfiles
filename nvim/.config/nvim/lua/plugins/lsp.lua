@@ -32,6 +32,5 @@ return {
 		if vim.fn.executable('dafny') then
 			require('lspconfig').dafny.setup({})
 		end
-
 	end
 }
