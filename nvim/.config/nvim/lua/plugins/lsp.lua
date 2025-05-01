@@ -2,6 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {"hrsh7th/cmp-nvim-lsp"},
 	lazy = false,
+
 	config = function()
 		local lspconfig_defaults = require('lspconfig').util.default_config
 		lspconfig_defaults.capabilities = vim.tbl_deep_extend(
@@ -28,9 +29,5 @@ return {
 			end,
 		})
 
-		-- mason can't install dafny
-		if vim.fn.executable('dafny') then
-			require('lspconfig').dafny.setup({})
-		end
 	end
 }

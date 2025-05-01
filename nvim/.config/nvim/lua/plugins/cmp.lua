@@ -4,25 +4,26 @@ return {
 	config = function()
 
 		local cmp = require('cmp')
+
 		cmp.setup({
 			sources = {
 				{name = 'nvim_lsp'},
 			},
+
 			mapping = cmp.mapping.preset.insert({
-				-- Navigate between completion items
-				['<s-Tab>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
-				['<Tab>'] = cmp.mapping.select_next_item({behavior = 'select'}),
-
-				-- `Enter` key to confirm completion
 				['<cr>'] = cmp.mapping.confirm({select = false}),
+				['<Tab>'] = cmp.mapping.confirm({select = true}),
 
-				-- Ctrl+Space to trigger completion menu
+        ['<C-e>'] = cmp.mapping.abort(),
 				['<C-Space>'] = cmp.mapping.complete(),
 
-				-- Scroll up and down in the completion documentation
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+
 				['<C-u>'] = cmp.mapping.scroll_docs(-4),
 				['<C-d>'] = cmp.mapping.scroll_docs(4),
 			}),
+
 			snippet = {
 				expand = function(args)
 					vim.snippet.expand(args.body)
