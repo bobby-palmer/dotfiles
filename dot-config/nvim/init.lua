@@ -1,4 +1,4 @@
--- TODO add diagnostics/work on fzf and autocmp (get rid of ghost text probably and make cmp pop up less often)
+-- TODO add diagnostics, work on fzf, add auto completion
 
 -- keymaps
 vim.g.mapleader = ' '
@@ -101,58 +101,6 @@ require("lazy").setup({
         })
       end
     },
-    {
-      'saghen/blink.cmp',
-      version = '1.*',
-      ---@module 'blink.cmp'
-      ---@type blink.cmp.Config
-      opts = {
-        keymap = {
-          preset = 'default',
-          ['<Tab>'] = {'select_and_accept', 'fallback'}
-        },
-        appearance = { nerd_font_variant = 'mono' },
-        completion = {
-          menu = { auto_show = false },
-          documentation = { auto_show = false },
-          ghost_text = {
-            enabled = true,
-            show_with_menu = false,
-          }
-        },
-        sources = {
-          default = { 'lsp', 'path', 'snippets', 'buffer' },
-        },
-        fuzzy = { implementation = "prefer_rust_with_warning" }
-      },
-      opts_extend = { "sources.default" }
-    },
-    {
-      'saghen/blink.pairs',
-      version = '*',
-      dependencies = 'saghen/blink.download',
-      --- @module 'blink.pairs'
-      --- @type blink.pairs.Config
-      opts = {
-        mappings = {
-          enabled = true,
-          pairs = {},
-        },
-        highlights = {
-          enabled = true,
-          groups = {
-            'BlinkPairsOrange',
-            'BlinkPairsPurple',
-            'BlinkPairsBlue',
-          },
-          matchparen = {
-            enabled = true,
-            group = 'MatchParen',
-          },
-        },
-        debug = false,
-      }
-    }
   },
 
   install = { colorscheme = { "habamax" } },
