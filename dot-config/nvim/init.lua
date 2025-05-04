@@ -11,6 +11,8 @@ vim.opt.expandtab = true
 
 vim.opt.termguicolors = true
 
+vim.wo.relativenumber = true
+
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
