@@ -1,5 +1,7 @@
 {
   "blink.cmp": { "branch": "main", "commit": "4f38ce99a472932d5776337f08f7a8180f1f571a" },
+  "blink.download": { "branch": "main", "commit": "d95072328fb8293cc62c2574b0de2026e74d6f92" },
+  "blink.pairs": { "branch": "main", "commit": "903cddb0ba5b47f48ebb43574ba202c88e0dab07" },
   "fzf-lua": { "branch": "main", "commit": "b11467c3fbfe48e4a815e4909f5c4e5b413ce6d0" },
   "lazy.nvim": { "branch": "main", "commit": "cf8ecc2c5e4332760431a33534240b0cbc6680ab" },
   "mini.icons": { "branch": "main", "commit": "397ed3807e96b59709ef3292f0a3e253d5c1dc0a" },
