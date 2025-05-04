@@ -25,7 +25,14 @@ vim.lsp.config('luals', {
   filetypes = {'lua'},
   root_markers = {'.luarc.json', '.luarc.jsonc'},
 })
-vim.lsp.enable('luals')
+
+vim.lsp.config('clangd', {
+  cmd = { 'clangd', '--background-index' },
+  root_markers = { 'compile_commands.json', 'compile_flags.txt' },
+  filetypes = { 'c', 'cpp' },
+})
+
+vim.lsp.enable({'luals', 'clangd'})
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
