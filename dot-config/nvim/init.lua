@@ -48,7 +48,54 @@ vim.opt.rtp:prepend(lazypath)
 -- setup plugins
 require("lazy").setup({
   spec = {
-		{import = "plugins"},
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.cmd([[colorscheme tokyonight]])
+      end
+    },
+    {
+      "ibhagwan/fzf-lua",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+
+      keys = function ()
+        local fzf = require("fzf-lua")
+
+        return {
+          {'<leader>ff', fzf.files},
+          {'<leader>fs', fzf.lsp_document_symbols},
+          {'<leader>ft', fzf.treesitter},
+        }
+      end,
+    },
+    {
+      'stevearc/oil.nvim',
+      ---@module 'oil'
+      ---@type oil.SetupOpts
+      opts = {},
+      dependencies = { { "echasnovski/mini.icons", opts = {} } },
+      lazy = false,
+
+      keys = {
+        {'<leader>o', "<CMD>Oil<CR>"},
+      },
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      config = function ()
+        local configs = require("nvim-treesitter.configs")
+
+        configs.setup({
+          ensure_installed = {"c", "cpp"},
+          sync_install = false,
+          highlight = {enable = true},
+          indent = {enable = true},
+        })
+      end
+    }
   },
   install = { colorscheme = { "habamax" } },
 })
