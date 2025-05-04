@@ -1,3 +1,5 @@
+-- TODO add diagnostics/work on fzf and autocmp
+
 -- keymaps
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -19,7 +21,7 @@ vim.opt.expandtab = true
 
 vim.opt.termguicolors = true
 
--- lsp
+-- lsp: add languages here
 vim.lsp.config('luals', {
   cmd = {'lua-language-server'},
   filetypes = {'lua'},
@@ -127,7 +129,7 @@ require("lazy").setup({
     },
     {
       'saghen/blink.pairs',
-      version = '*', 
+      version = '*',
       dependencies = 'saghen/blink.download',
       --- @module 'blink.pairs'
       --- @type blink.pairs.Config
