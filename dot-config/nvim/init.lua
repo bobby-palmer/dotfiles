@@ -111,7 +111,7 @@ require("lazy").setup({
         keymap = {
           preset = 'default',
 
-          ['<Tab>'] = {'select_and_accept'}
+          ['<Tab>'] = {'select_and_accept', 'fallback'}
         },
 
         appearance = { nerd_font_variant = 'mono' },
