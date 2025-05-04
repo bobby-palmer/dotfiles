@@ -1,7 +1,15 @@
+-- keymaps
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
+
+-- options
 vim.opt.number = true
+vim.wo.relativenumber = true
 vim.opt.signcolumn = 'yes'
 
 vim.opt.tabstop = 2
@@ -11,14 +19,15 @@ vim.opt.expandtab = true
 
 vim.opt.termguicolors = true
 
-vim.wo.relativenumber = true
+-- lsp
+vim.lsp.config('luals', {
+  cmd = {'lua-language-server'},
+  filetypes = {'lua'},
+  root_markers = {'.luarc.json', '.luarc.jsonc'},
+})
+vim.lsp.enable('luals')
 
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
-
--- Bootstrap lazy.nvim and init plugins
+-- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -36,6 +45,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- setup plugins
 require("lazy").setup({
   spec = {
 		{import = "plugins"},
