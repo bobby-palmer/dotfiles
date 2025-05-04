@@ -1,4 +1,4 @@
--- TODO add diagnostics/work on fzf and autocmp
+-- TODO add diagnostics/work on fzf and autocmp (get rid of ghost text probably and make cmp pop up less often)
 
 -- keymaps
 vim.g.mapleader = ' '
