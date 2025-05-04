@@ -66,7 +66,6 @@ require("lazy").setup({
     {
       "ibhagwan/fzf-lua",
       dependencies = { "nvim-tree/nvim-web-devicons" },
-
       keys = function ()
         local fzf = require("fzf-lua")
 
@@ -84,9 +83,8 @@ require("lazy").setup({
       opts = {},
       dependencies = { { "echasnovski/mini.icons", opts = {} } },
       lazy = false,
-
       keys = {
-        {'<leader>o', "<CMD>Oil<CR>"},
+        {'-', "<CMD>Oil<CR>"},
       },
     },
     {
@@ -102,7 +100,40 @@ require("lazy").setup({
           indent = {enable = true},
         })
       end
-    }
+    },
+    {
+      'saghen/blink.cmp',
+      version = '1.*',
+
+      ---@module 'blink.cmp'
+      ---@type blink.cmp.Config
+      opts = {
+        keymap = {
+          preset = 'default',
+
+          ['<Tab>'] = {'select_and_accept'}
+        },
+
+        appearance = { nerd_font_variant = 'mono' },
+
+        completion = {
+          menu = { auto_show = false },
+          documentation = { auto_show = false },
+          ghost_text = {
+            enabled = true,
+            show_with_menu = false,
+          }
+        },
+
+        sources = {
+          default = { 'lsp', 'path', 'snippets', 'buffer' },
+        },
+
+        fuzzy = { implementation = "prefer_rust_with_warning" }
+      },
+      opts_extend = { "sources.default" }
+    },
+
   },
 
   install = { colorscheme = { "habamax" } },
