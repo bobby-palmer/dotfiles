@@ -5,4 +5,8 @@ return {
   opts = {},
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   lazy = false,
+
+  keys = {
+    {'<leader>o', "<CMD>Oil<CR>"},
+  },
 }
