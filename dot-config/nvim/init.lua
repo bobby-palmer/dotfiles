@@ -112,14 +112,6 @@ require("lazy").setup({
           ['<Tab>'] = {'select_and_accept', 'fallback'}
         },
         appearance = { nerd_font_variant = 'mono' },
-        completion = {
-          menu = { auto_show = false },
-          documentation = { auto_show = false },
-          ghost_text = {
-            enabled = true,
-            show_with_menu = false,
-          }
-        },
         sources = {
           default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
