@@ -109,11 +109,18 @@ require("lazy").setup({
       opts = {
         keymap = {
           preset = 'default',
-          ['<Tab>'] = {'select_and_accept', 'fallback'}
+          ['<Tab>'] = {'select_next', 'fallback'},
+          ['<S-Tab>'] = {'select_prev', 'fallback'},
+          ['<CR>'] = {'accept', 'fallback'}
         },
         appearance = { nerd_font_variant = 'mono' },
         sources = {
           default = { 'lsp', 'path', 'snippets', 'buffer' },
+        },
+        completion = {
+          list = {
+            selection = { preselect = false }
+          }
         },
         fuzzy = { implementation = "prefer_rust_with_warning" }
       },
