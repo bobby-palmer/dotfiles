@@ -1,4 +1,4 @@
--- TODO add diagnostics/work on fzf and autocmp (get rid of ghost text probably and make cmp pop up less often)
+-- TODO add diagnostics, work on fzf, cmp show signature
 
 -- keymaps
 vim.g.mapleader = ' '
@@ -108,10 +108,7 @@ require("lazy").setup({
       ---@type blink.cmp.Config
       opts = {
         keymap = {
-          preset = 'default',
-          ['<Tab>'] = {'select_next', 'fallback'},
-          ['<S-Tab>'] = {'select_prev', 'fallback'},
-          ['<CR>'] = {'accept', 'fallback'}
+          preset = 'super-tab',
         },
         appearance = { nerd_font_variant = 'mono' },
         sources = {
