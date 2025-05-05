@@ -25,12 +25,12 @@ vim.opt.termguicolors = true
 vim.lsp.config('luals', {
   cmd = {'lua-language-server'},
   filetypes = {'lua'},
-  root_markers = {'.luarc.json', '.luarc.jsonc'},
+  root_markers = {'.luarc.json', '.luarc.jsonc', '.git'},
 })
 
 vim.lsp.config('clangd', {
   cmd = { 'clangd', '--background-index' },
-  root_markers = { 'compile_commands.json', 'compile_flags.txt' },
+  root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
   filetypes = { 'c', 'cpp' },
 })
 
