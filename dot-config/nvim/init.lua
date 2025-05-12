@@ -19,8 +19,9 @@ vim.opt.expandtab = true
 
 vim.opt.termguicolors = true
 
--- lsp servers
+-- lsp
 vim.lsp.enable({'lua_ls', 'clangd', 'rust_analyzer'})
+vim.diagnostic.config({ virtual_text = true })
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
