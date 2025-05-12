@@ -19,20 +19,8 @@ vim.opt.expandtab = true
 
 vim.opt.termguicolors = true
 
--- lsp: add languages here
-vim.lsp.config('luals', {
-  cmd = {'lua-language-server'},
-  filetypes = {'lua'},
-  root_markers = {'.luarc.json', '.luarc.jsonc', '.git'},
-})
-
-vim.lsp.config('clangd', {
-  cmd = { 'clangd', '--background-index' },
-  root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
-  filetypes = { 'c', 'cpp' },
-})
-
-vim.lsp.enable({'luals', 'clangd'})
+-- lsp servers
+vim.lsp.enable({'lua_ls', 'clangd', 'rust_analyzer'})
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -146,7 +134,9 @@ require("lazy").setup({
         },
         debug = false,
       }
-    }
+    },
+    -- for default configs
+    { 'neovim/nvim-lspconfig' }
   },
 
   install = { colorscheme = { "habamax" } },
