@@ -1,9 +1,3 @@
--- TODO:
--- add diagnostics, 
--- work on fzf / add functionality and pickers
--- cmp show signature,
--- make cmp keybinds nicer (maybe dont auto show the completion window?)
-
 -- keymaps
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
