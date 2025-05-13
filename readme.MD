@@ -10,6 +10,11 @@ Clone this repo into ~/ Then, run `stow . --dotfiles` to symlink the configurati
 - Nicer key binds (lsp, fzf)
 - Autopairs could be better
 
+## Other TODO's
+- TMUX bottom bar looks GROSS
+- add yabai for window manager?
+- zshrc could def improve plugins
+
 ## end goal (in order of importance)
 - Maximize ability to jump around without bloat
 - Minimize the number of keystrokes and mental overhead to code
