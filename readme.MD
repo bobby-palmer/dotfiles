@@ -9,6 +9,7 @@ Clone this repo into ~/ Then, run `stow . --dotfiles` to symlink the configurati
 - More pickers (fzf)
 - Nicer key binds (lsp, fzf)
 - Autopairs could be better
+- spacing keybind
 
 ## Other TODO's
 - TMUX bottom bar looks GROSS
