@@ -1,3 +1,4 @@
+# blank theme to use Starship
 ZSH_THEME=""
 
 # Load Zinit 
