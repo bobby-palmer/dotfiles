@@ -7,12 +7,15 @@ if [[ ! -f ~/.zinit/bin/zinit.zsh ]]; then
 fi
 source ~/.zinit/bin/zinit.zsh
 
-set -o vi
-
+# Plugins
 eval "$(starship init zsh)"
 
+# Opts
+set -o vi
+
+# Commands
 function reload() {
-  echo "Reloading..."
+  echo "Sourcing zshrc..."
   source ~/.zshrc
 }
 
