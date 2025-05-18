@@ -1,6 +1,6 @@
 ZSH_THEME=""
 
-# Load Zinit
+# Load Zinit 
 if [[ ! -f ~/.zinit/bin/zinit.zsh ]]; then
   mkdir -p ~/.zinit
   git clone https://github.com/zdharma-continuum/zinit ~/.zinit/bin
@@ -10,3 +10,9 @@ source ~/.zinit/bin/zinit.zsh
 set -o vi
 
 eval "$(starship init zsh)"
+
+function reload() {
+  echo "Reloading..."
+  source ~/.zshrc
+}
+
