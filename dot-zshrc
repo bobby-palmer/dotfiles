@@ -11,12 +11,8 @@ source ~/.zinit/bin/zinit.zsh
 # Plugins
 eval "$(starship init zsh)"
 
-# Opts
-set -o vi
-
 # Commands
 function reload() {
   echo "Sourcing zshrc..."
   source ~/.zshrc
 }
-
