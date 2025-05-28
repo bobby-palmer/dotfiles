@@ -2,10 +2,12 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
+local mapkey = vim.keymap.set
+
+mapkey("n", "<C-l>", "<C-w><C-l>")
+mapkey("n", "<C-h>", "<C-w><C-h>")
+mapkey("n", "<C-j>", "<C-w><C-j>")
+mapkey("n", "<C-k>", "<C-w><C-k>")
 
 -- options
 vim.opt.number = true
@@ -28,7 +30,8 @@ vim.diagnostic.config({ virtual_text = true }) -- fix this!
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none",
+    "--branch=stable", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
