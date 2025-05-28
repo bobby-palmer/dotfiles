@@ -13,17 +13,14 @@ mapkey("n", "<C-k>", "<C-w><C-k>")
 vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.signcolumn = 'yes'
-
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-
 vim.opt.termguicolors = true
 
 -- lsp
 vim.lsp.enable({'lua_ls', 'clangd', 'rust_analyzer', 'zls'})
-
 vim.diagnostic.config({ virtual_text = true }) -- fix this!
 
 -- bootstrap lazy.nvim
