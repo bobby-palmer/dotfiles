@@ -2,12 +2,15 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-local mapkey = vim.keymap.set
+local keymap = vim.keymap.set
 
-mapkey("n", "<C-l>", "<C-w><C-l>")
-mapkey("n", "<C-h>", "<C-w><C-h>")
-mapkey("n", "<C-j>", "<C-w><C-j>")
-mapkey("n", "<C-k>", "<C-w><C-k>")
+keymap("n", "<C-l>", "<C-w><C-l>")
+keymap("n", "<C-h>", "<C-w><C-h>")
+keymap("n", "<C-j>", "<C-w><C-j>")
+keymap("n", "<C-k>", "<C-w><C-k>")
+
+keymap("n", "j", "gj")
+keymap("n", "k", "gk")
 
 -- options
 vim.opt.number = true
