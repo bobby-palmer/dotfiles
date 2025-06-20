@@ -16,15 +16,3 @@ function reload() {
   echo "Sourcing zshrc..."
   source ~/.zshrc
 }
-
-## Poker earnings tracking
-function howmuch() {
-  cat ~/.earnings
-}
-
-function earn() {
-  num=$(head -n 1 ~/.earnings)
-  earned=$1
-  total=$((num+earned))
-  echo "$total" > ~/.earnings
-}
