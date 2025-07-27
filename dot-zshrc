@@ -1,6 +1,11 @@
 # blank theme to use Starship
 ZSH_THEME=""
 
+function reload() {
+  echo "Sourcing zshrc..."
+  source ~/.zshrc
+}
+
 # Load Zinit 
 if [[ ! -f ~/.zinit/bin/zinit.zsh ]]; then
   mkdir -p ~/.zinit
@@ -11,8 +16,3 @@ source ~/.zinit/bin/zinit.zsh
 # Plugins
 eval "$(starship init zsh)"
 
-# Custom Function
-function reload() {
-  echo "Sourcing zshrc..."
-  source ~/.zshrc
-}
