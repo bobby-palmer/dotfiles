@@ -5,7 +5,6 @@ source ~/Repos/znap/znap.zsh
 
 znap prompt sindresorhus/pure
 znap source zdharma-continuum/fast-syntax-highlighting
-## add autocomplete
 
 # Config
 export EDITOR=nvim
