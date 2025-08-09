@@ -1,18 +1,5 @@
-# blank theme to use Starship
-ZSH_THEME=""
+[[ -r ~/Repos/znap/znap.zsh ]] ||
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
+source ~/Repos/znap/znap.zsh
 
-function reload() {
-  echo "Sourcing zshrc..."
-  source ~/.zshrc
-}
-
-# Load Zinit 
-if [[ ! -f ~/.zinit/bin/zinit.zsh ]]; then
-  mkdir -p ~/.zinit
-  git clone https://github.com/zdharma-continuum/zinit ~/.zinit/bin
-fi
-source ~/.zinit/bin/zinit.zsh
-
-# Plugins
-eval "$(starship init zsh)"
-
+znap prompt sindresorhus/pure
