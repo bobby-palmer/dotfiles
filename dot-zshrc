@@ -1,5 +1,10 @@
+# Plugins
 [[ -r ~/Repos/znap/znap.zsh ]] ||
     git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
 source ~/Repos/znap/znap.zsh
 
 znap prompt sindresorhus/pure
+
+# Config
+export EDITOR=nvim
+export VISUAL=nvim
