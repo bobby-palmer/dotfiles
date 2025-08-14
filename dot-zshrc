@@ -6,6 +6,8 @@ source ~/Repos/znap/znap.zsh
 znap prompt sindresorhus/pure
 znap source zdharma-continuum/fast-syntax-highlighting
 
-# Config
+# Vars
 export EDITOR=nvim
 export VISUAL=nvim
+
+# Functions
