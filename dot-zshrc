@@ -4,6 +4,8 @@
 source ~/Repos/znap/znap.zsh
 
 znap prompt sindresorhus/pure
+zstyle :prompt:pure:path color cyan
+
 znap source zdharma-continuum/fast-syntax-highlighting
 
 # Vars
