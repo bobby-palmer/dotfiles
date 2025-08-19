@@ -85,7 +85,7 @@ require("lazy").setup({
       dependencies = { { "echasnovski/mini.icons", opts = {} } },
       lazy = false,
       keys = {
-        {'-', "<CMD>Oil<CR>"},
+        {'-', "<CMD>Oil --float<CR>"},
       },
     },
     {
