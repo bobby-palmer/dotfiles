@@ -18,5 +18,6 @@ Install required packages
 - noice
 - hard time
 - leet.nvim
+- Oil show hidden
 
 ### Zsh
