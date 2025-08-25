@@ -79,14 +79,18 @@ require("lazy").setup({
         })
       end
     },
-    { 'echasnovski/mini.nvim', version = false },
     { 'neovim/nvim-lspconfig' },
+    { 'echasnovski/mini.nvim',
+      version = false,
+      config = function ()
+        require('mini.pairs').setup()
+        require('mini.completion').setup()
+        require('mini.pick').setup()
+        require('mini.files').setup()
+      end
+    },
   },
 
   install = { colorscheme = { "habamax" } },
 })
 
-require('mini.pairs').setup()
-require('mini.completion').setup()
-require('mini.pick').setup()
-require('mini.files').setup()
