@@ -72,7 +72,7 @@ require("lazy").setup({
       config = function ()
         local configs = require("nvim-treesitter.configs")
         configs.setup({
-          ensure_installed = {"c", "cpp"},
+          ensure_installed = {"c", "cpp", "markdown", "markdown_inline"},
           sync_install = false,
           highlight = {enable = true},
           indent = {enable = true},
@@ -87,6 +87,7 @@ require("lazy").setup({
         require('mini.completion').setup()
         require('mini.pick').setup()
         require('mini.files').setup()
+        require('mini.snippets').setup()
       end
     },
   },
