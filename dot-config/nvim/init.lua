@@ -88,6 +88,7 @@ require("lazy").setup({
         require('mini.pick').setup()
         require('mini.files').setup()
         require('mini.snippets').setup()
+        require('mini.comment').setup()
       end
     },
   },
