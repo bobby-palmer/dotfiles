@@ -1,14 +1,20 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Keymaps
 local keymap = vim.keymap.set
 
 keymap("n", "<C-l>", "<C-w><C-l>")
 keymap("n", "<C-h>", "<C-w><C-h>")
 keymap("n", "<C-j>", "<C-w><C-j>")
 keymap("n", "<C-k>", "<C-w><C-k>")
+
 keymap("n", "j", "gj")
 keymap("n", "k", "gk")
+
+keymap("n", "<leader>ff", "<CMD>Pick files<CR>")
+keymap("n", "-", "<CMD>lua MiniFiles.open()<CR>")
+-- End keymaps
 
 vim.opt.number = true
 vim.wo.relativenumber = true
@@ -61,24 +67,6 @@ require("lazy").setup({
       end
     },
     {
-      'stevearc/oil.nvim',
-      ---@module 'oil'
-      ---@type oil.SetupOpts
-      opts = {
-        keymaps = {
-          ["<C-l>"] = false,
-          ["<C-h>"] = false,
-        }
-      },
-      keys = {
-        {'-', function ()
-          vim.cmd [[Oil]]
-        end}
-      },
-      dependencies = { { "echasnovski/mini.icons", opts = {} } },
-      lazy = false,
-    },
-    {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       config = function ()
@@ -101,3 +89,4 @@ require("lazy").setup({
 require('mini.pairs').setup()
 require('mini.completion').setup()
 require('mini.pick').setup()
+require('mini.files').setup()
