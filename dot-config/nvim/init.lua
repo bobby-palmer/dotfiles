@@ -83,11 +83,9 @@ require("lazy").setup({
     { 'echasnovski/mini.nvim',
       version = false,
       config = function ()
-        require('mini.pairs').setup()
-        require('mini.completion').setup()
         require('mini.pick').setup()
         require('mini.files').setup()
-        require('mini.snippets').setup()
+        require('mini.pairs').setup()
         require('mini.comment').setup()
       end
     },
