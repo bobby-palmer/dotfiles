@@ -1,4 +1,3 @@
--- keymaps
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -12,7 +11,6 @@ keymap("n", "<C-k>", "<C-w><C-k>")
 keymap("n", "j", "gj")
 keymap("n", "k", "gk")
 
--- options
 vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.signcolumn = 'yes'
@@ -22,7 +20,6 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
 
--- lsp
 vim.lsp.enable({
   'lua_ls',
   'clangd',
@@ -33,7 +30,7 @@ vim.lsp.enable({
   'gopls'
 })
 
-vim.diagnostic.config({ virtual_text = true }) -- TODO: make nicer
+vim.diagnostic.config({ virtual_text = true })
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -54,7 +51,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- setup plugins
 require("lazy").setup({
   spec = {
     {
@@ -81,12 +77,19 @@ require("lazy").setup({
       'stevearc/oil.nvim',
       ---@module 'oil'
       ---@type oil.SetupOpts
-      opts = {},
+      opts = {
+        keymaps = {
+          ["<C-l>"] = false,
+          ["<C-h>"] = false,
+        }
+      },
+      keys = {
+        {'-', function ()
+          vim.cmd [[Oil]]
+        end}
+      },
       dependencies = { { "echasnovski/mini.icons", opts = {} } },
       lazy = false,
-      keys = {
-        {'-', "<CMD>Oil<CR>"},
-      },
     },
     {
       "nvim-treesitter/nvim-treesitter",
