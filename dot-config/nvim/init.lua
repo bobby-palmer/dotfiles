@@ -14,6 +14,7 @@ keymap("n", "k", "gk")
 
 keymap("n", "<leader>ff", "<CMD>Pick files<CR>")
 keymap("n", "-", "<CMD>lua MiniFiles.open()<CR>")
+keymap("n", "<leader>T", "<CMD>TypstPreview<CR>")
 -- End keymaps
 
 vim.opt.number = true
@@ -32,8 +33,15 @@ vim.lsp.enable({
   'zls',
   'ts_ls',
   'pyright',
-  'gopls'
+  'gopls',
+  'tinymist',
 })
+
+vim.lsp.config["tinymist"] = {
+    cmd = { "tinymist" },
+    filetypes = { "typst" },
+    settings = {},
+}
 
 vim.diagnostic.config({ virtual_text = true }) -- TODO
 
@@ -88,6 +96,12 @@ require("lazy").setup({
       opts = {
         keymap = { preset = 'super-tab' },
       },
+    },
+    {
+      'chomosuke/typst-preview.nvim',
+      lazy = false,
+      version = '1.*',
+      opts = {},
     },
     { 'neovim/nvim-lspconfig' },
     { 'echasnovski/mini.nvim',
