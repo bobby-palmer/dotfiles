@@ -136,7 +136,9 @@ require("lazy").setup({
         end
     },
     { 'neovim/nvim-lspconfig' },
-    { 'echasnovski/mini.pairs', version = false, opts = {}},
+    { 'echasnovski/mini.pairs', version = false, opts = {} },
+    { 'echasnovski/mini.surround', version = false, opts = {} },
+    { 'echasnovski/mini.comment', version = false, opts = {} },
   },
   install = { colorscheme = { "habamax" } },
 })
