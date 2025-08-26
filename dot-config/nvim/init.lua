@@ -110,9 +110,10 @@ require("lazy").setup({
       ---@type oil.SetupOpts
       opts = {
         keymaps = {
-          ["<C-l>"] = false,
-          ["<C-h>"] = false,
-        }
+          ["l"] = {"actions.select", mode = "n"},
+          ["h"] = {"actions.parent", mode = "n"},
+        },
+        use_default_keymaps = false,
       },
       keys = {{"-", cmd("Oil")}},
       dependencies = { { "echasnovski/mini.icons", opts = {} } },
