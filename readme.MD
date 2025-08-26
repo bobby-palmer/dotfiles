@@ -8,16 +8,14 @@ Install required packages
 ## TODO's
 
 ### Nvim
-- autocmp keybinds
-- better diagnostics display
+- Signiture help
 - snacks
 - mini
 - arrow
-- markdown
 - git (conflicts)
 - noice
 - hard time
 - leet.nvim
-- Oil show hidden
+- Oil show hidden?
 
 ### Zsh

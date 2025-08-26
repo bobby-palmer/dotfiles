@@ -1,22 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Keymaps
-local keymap = vim.keymap.set
-
-keymap("n", "<C-l>", "<C-w><C-l>")
-keymap("n", "<C-h>", "<C-w><C-h>")
-keymap("n", "<C-j>", "<C-w><C-j>")
-keymap("n", "<C-k>", "<C-w><C-k>")
-
-keymap("n", "j", "gj")
-keymap("n", "k", "gk")
-
-keymap("n", "<leader>ff", "<CMD>Pick files<CR>")
-keymap("n", "-", "<CMD>lua MiniFiles.open()<CR>")
-keymap("n", "<leader>T", "<CMD>TypstPreview<CR>")
--- End keymaps
-
 vim.opt.number = true
 vim.wo.relativenumber = true
 vim.opt.signcolumn = 'yes'
@@ -25,6 +9,24 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
+
+local keymap = vim.keymap.set
+
+---@param command string vim command to execute
+---@return function a function that will execute the input command when called
+local cmd = function (command)
+  return function ()
+    vim.cmd(command)
+  end
+end
+
+keymap("n", "<C-l>", "<C-w><C-l>")
+keymap("n", "<C-h>", "<C-w><C-h>")
+keymap("n", "<C-j>", "<C-w><C-j>")
+keymap("n", "<C-k>", "<C-w><C-k>")
+
+keymap("n", "j", "gj")
+keymap("n", "k", "gk")
 
 vim.lsp.enable({
   'lua_ls',
@@ -42,8 +44,6 @@ vim.lsp.config["tinymist"] = {
     filetypes = { "typst" },
     settings = {},
 }
-
-vim.diagnostic.config({ virtual_text = true }) -- TODO
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -95,6 +95,7 @@ require("lazy").setup({
       ---@type blink.cmp.Config
       opts = {
         keymap = { preset = 'super-tab' },
+        signature = { enabled = true },
       },
     },
     {
@@ -103,17 +104,39 @@ require("lazy").setup({
       version = '1.*',
       opts = {},
     },
-    { 'neovim/nvim-lspconfig' },
-    { 'echasnovski/mini.nvim',
-      version = false,
-      config = function ()
-        require('mini.pick').setup()
-        require('mini.files').setup()
-        require('mini.pairs').setup()
-        require('mini.comment').setup()
-      end
+    {
+      'stevearc/oil.nvim',
+      ---@module 'oil'
+      ---@type oil.SetupOpts
+      opts = {
+        keymaps = {
+          ["<C-l>"] = false,
+          ["<C-h>"] = false,
+        }
+      },
+      keys = {{"-", cmd("Oil")}},
+      dependencies = { { "echasnovski/mini.icons", opts = {} } },
+      lazy = false,
     },
+    {
+      "ibhagwan/fzf-lua",
+      dependencies = { "echasnovski/mini.icons" },
+      opts = {},
+      keys = {
+        {"<leader>ff", cmd("FzfLua files")}
+      }
+    },
+    {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy",
+        priority = 1000,
+        config = function()
+            require('tiny-inline-diagnostic').setup()
+            vim.diagnostic.config({ virtual_text = false })
+        end
+    },
+    { 'neovim/nvim-lspconfig' },
+    { 'echasnovski/mini.pairs', version = false, opts = {}},
   },
   install = { colorscheme = { "habamax" } },
 })
-
