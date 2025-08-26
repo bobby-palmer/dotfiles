@@ -8,7 +8,8 @@ Install required packages
 ## TODO's
 
 ### Nvim
-- Signiture help
+- Signiture help (fix issue to make it pop up)
+- Oil show hidden?
 - snacks
 - mini
 - arrow
@@ -16,6 +17,6 @@ Install required packages
 - noice
 - hard time
 - leet.nvim
-- Oil show hidden?
 
 ### Zsh
+- functions
