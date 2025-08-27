@@ -45,6 +45,8 @@ vim.lsp.config["tinymist"] = {
     settings = {},
 }
 
+vim.diagnostic.config({ virtual_text = true })
+
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -125,16 +127,8 @@ require("lazy").setup({
       opts = {},
       keys = {
         {"<leader>ff", cmd("FzfLua files")}
-      }
-    },
-    {
-        "rachartier/tiny-inline-diagnostic.nvim",
-        event = "VeryLazy",
-        priority = 1000,
-        config = function()
-            require('tiny-inline-diagnostic').setup()
-            vim.diagnostic.config({ virtual_text = false })
-        end
+      },
+      lazy = false,
     },
     { 'neovim/nvim-lspconfig' },
     { 'echasnovski/mini.pairs', version = false, opts = {} },

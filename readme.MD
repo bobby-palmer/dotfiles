@@ -8,15 +8,8 @@ Install required packages
 ## TODO's
 
 ### Nvim
-- Signiture help (fix issue to make it pop up)
-- Oil show hidden?
-- snacks
-- mini
-- arrow
+- Diagnostics
 - git (conflicts)
-- noice
-- hard time
-- leet.nvim
 
 ### Zsh
 - functions
