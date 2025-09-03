@@ -3,7 +3,7 @@ Repo to track my minimalist dot files.
 
 ## Setup
 Clone this repo into ~/ Then, from inside the cloned directory run `stow . --dotfiles` to symlink the configuration to the root directory
-Install required packages
+Install required packages (fzf, cargo)
 
 ## TODO's
 
@@ -13,3 +13,4 @@ Install required packages
 
 ### Zsh
 - functions
+- Important number / id manager with fuzz finding
