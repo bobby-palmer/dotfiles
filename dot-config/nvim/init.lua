@@ -37,6 +37,7 @@ vim.lsp.enable({
   'pyright',
   'gopls',
   'tinymist',
+  'ocamllsp',
 })
 
 vim.lsp.config["tinymist"] = {
