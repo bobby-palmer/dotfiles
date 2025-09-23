@@ -10,7 +10,6 @@ Install required packages (fzf, cargo)
 ### Nvim
 - Diagnostics
 - git (conflicts)
-
-### Zsh
-- functions
-- Important number / id manager with fuzz finding
+- hidden file 
+- surround
+- gitignore

@@ -46,8 +46,6 @@ vim.lsp.config["tinymist"] = {
     settings = {},
 }
 
-vim.diagnostic.config({ virtual_text = true })
-
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -73,9 +71,7 @@ require("lazy").setup({
       "folke/tokyonight.nvim",
       lazy = false,
       priority = 1000,
-      config = function()
-        vim.cmd([[colorscheme tokyonight-night]])
-      end
+      config = cmd("colorscheme tokyonight-night")
     },
     {
       "nvim-treesitter/nvim-treesitter",
@@ -83,7 +79,12 @@ require("lazy").setup({
       config = function ()
         local configs = require("nvim-treesitter.configs")
         configs.setup({
-          ensure_installed = {"c", "cpp", "markdown", "markdown_inline"},
+          ensure_installed = {
+            "c",
+            "cpp",
+            "markdown",
+            "markdown_inline"
+          },
           sync_install = false,
           highlight = {enable = true},
           indent = {enable = true},
@@ -113,7 +114,6 @@ require("lazy").setup({
       ---@type oil.SetupOpts
       opts = {
         keymaps = {
-          -- disable for window switching
           ["<C-h>"] = false,
           ["<C-l>"] = false,
         },
