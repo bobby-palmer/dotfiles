@@ -8,8 +8,9 @@ Install required packages (fzf, cargo)
 ## TODO's
 
 ### Nvim
-- Diagnostics
-- git (conflicts)
-- hidden file 
-- surround
-- gitignore
+- Keymap maxxing
+- Better virtual text
+- blink config
+- surround plugin
+- Mini objects
+- IDEK
