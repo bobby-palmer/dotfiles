@@ -127,7 +127,8 @@ require("lazy").setup({
       dependencies = { "echasnovski/mini.icons" },
       opts = {},
       keys = {
-        {"<leader>ff", cmd("FzfLua files")}
+        {"<leader>ff", cmd("FzfLua files")},
+        {"<leader>fg", cmd("FzfLua lgrep_curbuf")},
       },
       lazy = false,
     },
