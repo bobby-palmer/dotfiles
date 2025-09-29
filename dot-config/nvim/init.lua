@@ -46,6 +46,16 @@ vim.lsp.config["tinymist"] = {
     settings = {},
 }
 
+local toggle_diagnostics = function ()
+  local is_on = false
+  return function ()
+    is_on = not is_on
+    vim.diagnostic.config({ virtual_lines = is_on })
+  end
+end
+
+keymap("n", "<leader>d", toggle_diagnostics())
+
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
