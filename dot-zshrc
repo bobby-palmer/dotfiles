@@ -6,7 +6,7 @@ source ~/Repos/znap/znap.zsh
 zstyle :prompt:pure:path color cyan
 znap prompt sindresorhus/pure
 
-znap source zdharma-continuum/fast-syntax-highlighting
+znap source zsh-users/zsh-syntax-highlighting
 
 # Vars
 export EDITOR=nvim
@@ -20,10 +20,6 @@ function push_all() {
   return 0
 }
 
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/Users/bobbypalmer/.opam/opam-init/init.zsh' ]] || source '/Users/bobbypalmer/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
+# LLVM Config for EECS 583
+export PATH="$(brew --prefix llvm)/bin:$PATH"
+export LLVM_DIR="$(brew --prefix llvm)/lib/cmake/llvm"
