@@ -54,6 +54,7 @@ local toggle_diagnostics = function ()
   end
 end
 
+-- TODO make this better
 keymap("n", "<leader>d", toggle_diagnostics())
 
 -- bootstrap lazy.nvim
