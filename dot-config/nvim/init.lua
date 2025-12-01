@@ -1,14 +1,19 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+local g = vim.g
 
-vim.opt.number = true
-vim.wo.relativenumber = true
-vim.opt.signcolumn = 'yes'
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.termguicolors = true
+g.mapleader = ' '
+g.maplocalleader = ' '
+
+local opt = vim.opt
+
+opt.expandtab = true
+opt.number = true
+opt.relativenumber = true
+opt.scrolloff = 5
+opt.shiftwidth = 2
+opt.signcolumn = 'yes'
+opt.softtabstop = 2
+opt.tabstop = 2
+opt.termguicolors = true
 
 local keymap = vim.keymap.set
 
@@ -46,16 +51,18 @@ vim.lsp.config["tinymist"] = {
     settings = {},
 }
 
-local toggle_diagnostics = function ()
-  local is_on = false
-  return function ()
-    is_on = not is_on
-    vim.diagnostic.config({ virtual_lines = is_on })
-  end
-end
+-- Slowly shift plugins to here when this works (Oil is cooked)
+vim.pack.add({
+  { src = "https://github.com/folke/tokyonight.nvim" },
+  { src = "https://github.com/echasnovski/mini.icons" },
+  -- { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },
+})
 
--- TODO make this better
-keymap("n", "<leader>d", toggle_diagnostics())
+vim.cmd "colorscheme tokyonight-night"
+
+require 'mini.icons'.setup {}
+
+-- require'nvim-treesitter.configs'.setup {}
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -79,10 +86,18 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     {
-      "folke/tokyonight.nvim",
+      'stevearc/oil.nvim',
+      ---@module 'oil'
+      ---@type oil.SetupOpts
+      opts = {
+        keymaps = {
+          ["<C-h>"] = false,
+          ["<C-l>"] = false,
+        },
+      },
+      keys = {{"-", cmd("Oil")}},
+      dependencies = { { "echasnovski/mini.icons", opts = {} } },
       lazy = false,
-      priority = 1000,
-      config = cmd("colorscheme tokyonight-night")
     },
     {
       "nvim-treesitter/nvim-treesitter",
@@ -118,20 +133,6 @@ require("lazy").setup({
       lazy = false,
       version = '1.*',
       opts = {},
-    },
-    {
-      'stevearc/oil.nvim',
-      ---@module 'oil'
-      ---@type oil.SetupOpts
-      opts = {
-        keymaps = {
-          ["<C-h>"] = false,
-          ["<C-l>"] = false,
-        },
-      },
-      keys = {{"-", cmd("Oil")}},
-      dependencies = { { "echasnovski/mini.icons", opts = {} } },
-      lazy = false,
     },
     {
       "ibhagwan/fzf-lua",
