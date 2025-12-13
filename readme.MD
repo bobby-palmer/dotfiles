@@ -7,8 +7,6 @@ Install required packages (fzf, cargo)
 
 ## TODO's
 
-Update to nvim 0.12 when it drops and rice config
-
 ### Nvim
 - Keymap maxxing
 - Better virtual text

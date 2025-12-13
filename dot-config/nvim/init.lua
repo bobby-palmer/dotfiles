@@ -37,14 +37,7 @@ vim.lsp.enable({
   "pyright",
   "gopls",
   "ocamllsp",
-  "tinymist",
 })
-
-vim.lsp.config["tinymist"] = {
-    cmd = { "tinymist" },
-    filetypes = { "typst" },
-    settings = {},
-}
 
 vim.pack.add({
   "https://github.com/folke/tokyonight.nvim",
@@ -52,7 +45,6 @@ vim.pack.add({
   "https://github.com/stevearc/oil.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/chomosuke/typst-preview.nvim",
   {
     src = "https://github.com/saghen/blink.cmp",
     version = vim.version.range("^1") -- bundle prebuilt binary
@@ -84,8 +76,6 @@ require("nvim-treesitter.configs").setup {
   highlight = {enable = true},
   indent = {enable = true},
 }
-
-require("typst-preview").setup {}
 
 require("blink.cmp").setup {
   keymap = { preset = "super-tab" },
