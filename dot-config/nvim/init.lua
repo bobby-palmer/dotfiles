@@ -70,7 +70,8 @@ require("nvim-treesitter.configs").setup {
     "c",
     "cpp",
     "markdown",
-    "markdown_inline"
+    "markdown_inline",
+    "ocaml"
   },
   sync_install = false,
   highlight = {enable = true},
