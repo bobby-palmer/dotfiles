@@ -1,13 +1,1 @@
-# Plugins
-[[ -r ~/Repos/znap/znap.zsh ]] ||
-    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
-source ~/Repos/znap/znap.zsh
-
-zstyle :prompt:pure:path color cyan
-znap prompt sindresorhus/pure
-
-znap source zsh-users/zsh-syntax-highlighting
-
-# Vars
-export EDITOR=nvim
-export VISUAL=nvim
+eval "$(starship init zsh)"
