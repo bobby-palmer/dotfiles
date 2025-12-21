@@ -9,6 +9,10 @@
       "rev": "cae96b04f6cad98a3ad24349731df5e56b384c3c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
     "mini.comment": {
       "rev": "a0c721115faff8d05505c0a12dab410084d9e536",
       "src": "https://github.com/echasnovski/mini.comment"

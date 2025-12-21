@@ -52,6 +52,7 @@ vim.pack.add({
   "https://github.com/echasnovski/mini.pairs",
   "https://github.com/echasnovski/mini.comment",
   "https://github.com/ibhagwan/fzf-lua",
+  "https://github.com/nvim-lualine/lualine.nvim",
 })
 
 vim.cmd("colorscheme tokyonight-night")
@@ -88,3 +89,5 @@ require("mini.pairs").setup {}
 require("mini.comment").setup {}
 
 require("fzf-lua").setup {}
+
+require("lualine").setup {}
