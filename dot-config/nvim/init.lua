@@ -5,23 +5,28 @@ g.maplocalleader = " "
 
 local opt = vim.opt
 
-opt.clipboard = "unnamedplus"
-
 opt.number = true
 opt.relativenumber = true
+opt.signcolumn = "yes"
 
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.tabstop = 2
 
-opt.signcolumn = "yes"
+opt.ignorecase = true
+opt.smartcase = true
+opt.incsearch = true
+
+opt.clipboard = "unnamedplus"
 
 opt.scrolloff = 5
 
 opt.termguicolors = true
 
-opt.winborder = "rounded"
+opt.winborder = "rounded" -- Boarder around popup-windows
+
+opt.cmdheight = 0 -- Get rid of empty cmd line (thank you Connor)
 
 local keymap = vim.keymap.set
 
@@ -60,6 +65,9 @@ require("oil").setup {
   keymaps = {
     ["<C-h>"] = false, -- Disable for window switching
     ["<C-l>"] = false, -- Ditto
+  },
+  view_options = {
+    show_hidden = true -- Show files begining with '.'
   }
 }
 
