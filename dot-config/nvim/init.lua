@@ -26,7 +26,7 @@ opt.termguicolors = true
 
 opt.winborder = "rounded" -- Boarder around popup-windows
 
-opt.cmdheight = 0 -- Get rid of empty cmd line (thank you Connor)
+opt.cmdheight = 0 -- Get rid of empty cmd line (thank you Conner)
 
 local keymap = vim.keymap.set
 
