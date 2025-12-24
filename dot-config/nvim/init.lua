@@ -8,6 +8,7 @@ local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
+opt.cursorline = true
 
 opt.expandtab = true
 opt.shiftwidth = 2
@@ -24,7 +25,7 @@ opt.scrolloff = 5
 
 opt.termguicolors = true
 
-opt.winborder = "rounded" -- Boarder around popup-windows
+opt.winborder = "rounded" -- Border around popup-windows
 
 opt.cmdheight = 0 -- Get rid of empty cmd line (thank you Conner)
 
@@ -41,7 +42,7 @@ vim.lsp.enable({
   "clangd",
   "rust_analyzer",
   "zls",
-  "ts_ls",
+  "ts_ls", -- ts pmo :sob
   "pyright",
   "gopls",
   "ocamllsp",
