@@ -9,25 +9,15 @@ opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.cursorline = true
-
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.tabstop = 2
-
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
-
-opt.clipboard = "unnamedplus"
-
-opt.scrolloff = 5
-
-opt.termguicolors = true
-
+opt.clipboard = "unnamedplus" -- Sync to system clipboard
+opt.scrolloff = 5 -- Keep 5 lines before the start or end of the buffer
+opt.termguicolors = true -- True color support
 opt.winborder = "rounded" -- Border around popup-windows
-
-opt.wrap = false
+opt.wrap = false -- Let lines go off the screen
 
 local keymap = vim.keymap.set
 
