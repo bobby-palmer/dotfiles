@@ -49,8 +49,8 @@ vim.lsp.enable({
 })
 
 -- Set colorscheme
-vim.pack.add {'https://github.com/folke/tokyonight.nvim'}
-vim.cmd("colorscheme tokyonight-night")
+vim.pack.add {'https://github.com/rebelot/kanagawa.nvim'}
+vim.cmd("colorscheme kanagawa")
 
 -- Add default LSP configurations (maybe write my own later)
 vim.pack.add {'https://github.com/neovim/nvim-lspconfig'}
@@ -97,10 +97,6 @@ require("mini.pairs").setup {}
 -- Comment toggling
 vim.pack.add {'https://github.com/echasnovski/mini.comment'}
 require("mini.comment").setup {}
-
--- Nice status line
-vim.pack.add {'https://github.com/nvim-lualine/lualine.nvim'}
-require("lualine").setup {}
 
 -- Fuzzy finder
 vim.pack.add {'https://github.com/ibhagwan/fzf-lua'}
