@@ -1,10 +1,8 @@
 local g = vim.g
-
 g.mapleader = " "
 g.maplocalleader = " "
 
 local opt = vim.opt
-
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
@@ -15,12 +13,12 @@ opt.softtabstop = 2
 opt.tabstop = 2
 opt.clipboard = "unnamedplus" -- Sync to system clipboard
 opt.scrolloff = 5 -- Keep 5 lines before the start or end of the buffer
+opt.sidescrolloff = 8 -- Keep 8 columns between cursor and sides of buffer
 opt.termguicolors = true -- True color support
 opt.winborder = "rounded" -- Border around popup-windows
 opt.wrap = false -- Let lines go off the screen
 
 local keymap = vim.keymap.set
-
 -- Better window switching!
 keymap("n", "<C-l>", "<C-w><C-l>")
 keymap("n", "<C-h>", "<C-w><C-h>")
@@ -41,6 +39,15 @@ vim.lsp.enable({
 -- Set colorscheme
 vim.pack.add {'https://github.com/rebelot/kanagawa.nvim'}
 vim.cmd("colorscheme kanagawa")
+
+-- QoL plugins
+vim.pack.add {'https://github.com/folke/snacks.nvim'}
+
+require("snacks").setup {
+  picker = {}
+}
+
+keymap("n", "<leader>ff", function () Snacks.picker.files() end)
 
 -- Add default LSP configurations (maybe write my own later)
 vim.pack.add {'https://github.com/neovim/nvim-lspconfig'}
@@ -65,19 +72,21 @@ require("oil").setup {
 keymap("n", "-", "<cmd>Oil<CR>") -- Vim vinegar keybind
 
 -- Treesitter
-vim.pack.add {'https://github.com/nvim-treesitter/nvim-treesitter'}
+vim.pack.add {{
+  src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+  version = 'main'
+}}
 
-require("nvim-treesitter.configs").setup {
-  ensure_installed = {
-    "c",
-    "cpp",
-    "markdown",
-    "markdown_inline",
-    "ocaml"
-  },
-  sync_install = false,
-  highlight = {enable = true},
-  indent = {enable = true},
+require('nvim-treesitter').setup {}
+
+require('nvim-treesitter').install {
+  "c",
+  "cpp",
+  "python",
+  "lua",
+  "markdown",
+  "markdown_inline",
+  "ocaml"
 }
 
 -- Autopair charaters ie (){}[]
@@ -88,18 +97,11 @@ require("mini.pairs").setup {}
 vim.pack.add {'https://github.com/echasnovski/mini.comment'}
 require("mini.comment").setup {}
 
--- Fuzzy finder
-vim.pack.add {'https://github.com/ibhagwan/fzf-lua'}
-require("fzf-lua").setup {}
-keymap("n", "<leader>ff", "<cmd>FzfLua files<CR>")
-
 -- Autocomplete
-vim.pack.add({
-  {
+vim.pack.add {{
     src = "https://github.com/saghen/blink.cmp",
     version = vim.version.range("^1") -- bundle prebuilt binary
-  },
-})
+}}
 
 require("blink.cmp").setup {
   keymap = { preset = "super-tab" },
