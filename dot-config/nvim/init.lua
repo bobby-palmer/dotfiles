@@ -13,7 +13,6 @@ opt.softtabstop = 2
 opt.tabstop = 2
 opt.clipboard = "unnamedplus" -- Sync to system clipboard
 opt.scrolloff = 5 -- Keep 5 lines before the start or end of the buffer
-opt.sidescrolloff = 8 -- Keep 8 columns between cursor and sides of buffer
 opt.termguicolors = true -- True color support
 opt.winborder = "rounded" -- Border around popup-windows
 opt.wrap = false -- Let lines go off the screen
@@ -36,12 +35,38 @@ vim.lsp.enable({
   "ocamllsp",
 })
 
--- Set colorscheme
-vim.pack.add {'https://github.com/rebelot/kanagawa.nvim'}
-vim.cmd("colorscheme kanagawa")
+-- Autoformat golang files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format { async = false }
+  end,
+})
 
--- QoL plugins
-vim.pack.add {'https://github.com/folke/snacks.nvim'}
+-- Enable treesitter highlights (golang)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function ()
+    vim.treesitter.start()
+  end
+})
+
+vim.pack.add({
+  'https://github.com/rebelot/kanagawa.nvim',
+  'https://github.com/folke/snacks.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/echasnovski/mini.icons',
+  'https://github.com/stevearc/oil.nvim',
+  'https://github.com/echasnovski/mini.pairs',
+  'https://github.com/echasnovski/mini.comment',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  {
+    src = "https://github.com/saghen/blink.cmp",
+    version = vim.version.range("^1"), -- Bundle prebuilt
+  },
+})
+
+vim.cmd("colorscheme kanagawa")
 
 require("snacks").setup {
   picker = {}
@@ -49,15 +74,7 @@ require("snacks").setup {
 
 keymap("n", "<leader>ff", function () Snacks.picker.files() end)
 
--- Add default LSP configurations (maybe write my own later)
-vim.pack.add {'https://github.com/neovim/nvim-lspconfig'}
-
--- Nicer icons
-vim.pack.add {'https://github.com/echasnovski/mini.icons'}
 require("mini.icons").setup {}
-
--- Filesystem editing plugin
-vim.pack.add {'https://github.com/stevearc/oil.nvim'}
 
 require("oil").setup {
   keymaps = {
@@ -71,12 +88,6 @@ require("oil").setup {
 
 keymap("n", "-", "<cmd>Oil<CR>") -- Vim vinegar keybind
 
--- Treesitter
-vim.pack.add {{
-  src = 'https://github.com/nvim-treesitter/nvim-treesitter',
-  version = 'main'
-}}
-
 require('nvim-treesitter').setup {}
 
 require('nvim-treesitter').install {
@@ -86,22 +97,13 @@ require('nvim-treesitter').install {
   "lua",
   "markdown",
   "markdown_inline",
-  "ocaml"
+  "ocaml",
+  "go"
 }
 
--- Autopair charaters ie (){}[]
-vim.pack.add {'https://github.com/echasnovski/mini.pairs'}
 require("mini.pairs").setup {}
 
--- Comment toggling
-vim.pack.add {'https://github.com/echasnovski/mini.comment'}
 require("mini.comment").setup {}
-
--- Autocomplete
-vim.pack.add {{
-    src = "https://github.com/saghen/blink.cmp",
-    version = vim.version.range("^1") -- bundle prebuilt binary
-}}
 
 require("blink.cmp").setup {
   keymap = { preset = "super-tab" },
