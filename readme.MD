@@ -8,4 +8,4 @@ I'm starting all my configs from scratch
 - TMUX config
 - Neovim start from scratch
 - Starship basic config
-- Disable ligatures?
+- ZSH LSP
