@@ -2,7 +2,3 @@ eval "$(starship init zsh)"
 
 export EDITOR=nvim
 export VISUAL=nvim
-
-function nvn() {
-  NVIM_APPNAME=nvim-new nvim
-}
