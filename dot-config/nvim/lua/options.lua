@@ -4,6 +4,7 @@ local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
+opt.wrap = false
 
 -- indents
 opt.tabstop = 2
