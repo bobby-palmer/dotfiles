@@ -17,7 +17,12 @@ vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 -- completion
 vim.pack.add({{ src = 'https://github.com/saghen/blink.cmp', version = 'v1' }})
 
-require('blink.cmp').setup {} -- TODO settings
+-- See: https://cmp.saghen.dev/recipes.html
+require('blink.cmp').setup {
+  keymap = {
+    preset = 'super-tab'
+  }
+}
 
 
 -- file explorer
@@ -58,3 +63,8 @@ vim.api.nvim_create_autocmd('FileType', {
 		end
 	end,
 })
+
+-- typst
+vim.pack.add({ 'https://github.com/chomosuke/typst-preview.nvim' })
+
+require('typst-preview').setup {}
