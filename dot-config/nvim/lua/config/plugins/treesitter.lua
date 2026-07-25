@@ -5,11 +5,12 @@ vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
 require('nvim-treesitter').setup {}
 
 require('nvim-treesitter').install {
+  'go',
+  'lua',
   'markdown',
   'markdown_inline',
-  'lua',
-  'go',
   'ocaml',
+  'python'
 }
 
 vim.api.nvim_create_autocmd("FileType", {

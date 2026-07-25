@@ -7,6 +7,7 @@ opt.signcolumn = "yes"
 opt.termguicolors = true
 opt.scrolloff = 8
 opt.cursorline = true
+opt.wrap = false
 
 -- Indentation
 opt.expandtab = true
