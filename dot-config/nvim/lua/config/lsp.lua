@@ -12,9 +12,9 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.enable({
-  "lua_ls",
   "gopls",
-  "ocamllsp"
+  "lua_ls",
+  "ocamllsp",
 })
 
 vim.diagnostic.config({

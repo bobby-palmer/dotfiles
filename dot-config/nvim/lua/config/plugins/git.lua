@@ -6,4 +6,5 @@ require('gitsigns').setup {
   attach_to_untracked = true
 }
 
--- TODO add keymaps
+vim.keymap.set('n', ']h', '<cmd>Gitsigns nav_hunk next<CR>', { desc = "Jump to next hunk" })
+vim.keymap.set('n', '[h', '<cmd>Gitsigns nav_hunk prev<CR>', { desc = "Jump to prev hunk" })
